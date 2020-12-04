@@ -1,7 +1,8 @@
 import 'package:circular_bottom_navigation/tab_item.dart';
 import 'package:flutter/material.dart';
 import 'package:circular_bottom_navigation/circular_bottom_navigation.dart';
-
+import 'home.dart';
+import 'package:dio/dio.dart';
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -31,10 +32,9 @@ class _MyHomePageState extends State<MyHomePage> {
   double bottomNavBarHeight = 60;
 
   List<TabItem> tabItems = List.of([
-    new TabItem(Icons.home, "Home", Colors.blue, labelStyle: TextStyle(fontWeight: FontWeight.normal)),
     new TabItem(Icons.search, "Search", Colors.orange, labelStyle: TextStyle(color: Colors.red, fontWeight: FontWeight.bold)),
-    new TabItem(Icons.layers, "Reports", Colors.red),
-    new TabItem(Icons.notifications, "Notifications", Colors.cyan),
+    new TabItem(Icons.home, "Home", Colors.blue, labelStyle: TextStyle(fontWeight: FontWeight.normal)),
+    new TabItem(Icons.layers, "Receive", Colors.red),
   ]);
 
   CircularBottomNavigationController _navigationController;
@@ -62,19 +62,16 @@ class _MyHomePageState extends State<MyHomePage> {
     String slogan;
     switch (selectedPos) {
       case 0:
-        slogan = "Familly, Happiness, Food";
+        slogan = "search";
         break;
       case 1:
-        slogan = "Find, Check, Use";
+        slogan = "home";
         break;
       case 2:
-        slogan = "Receive, Review, Rip";
-        break;
-      case 3:
-        slogan = "Noise, Panic, Ignore";
+        slogan = "receive";
         break;
     }
-
+    return LoginScreen();
     return GestureDetector(
       child: Container(
         width: double.infinity,

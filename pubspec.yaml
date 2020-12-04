@@ -21,6 +21,9 @@ environment:
   sdk: ">=2.7.0 <3.0.0"
 
 dependencies:
+  intl: ^0.16.1
+  flutter_login: ^1.0.14
+  dio: ^3.0.10
   circular_bottom_navigation: ^1.0.1
   flutter:
     sdk: flutter
